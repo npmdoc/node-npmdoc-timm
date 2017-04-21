@@ -1,0 +1,1049 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+    >timm (v1.2.5)</a>
+</h1>
+<h4>Immutability helpers with fast reads and acceptable writes</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.timm">module timm</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.timm.addDefaults">
+            function <span class="apidocSignatureSpan">timm.</span>addDefaults
+            <span class="apidocSignatureSpan">(a, b, c, d, e, f)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.timm.addFirst">
+            function <span class="apidocSignatureSpan">timm.</span>addFirst
+            <span class="apidocSignatureSpan">(array, val)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.timm.addLast">
+            function <span class="apidocSignatureSpan">timm.</span>addLast
+            <span class="apidocSignatureSpan">(array, val)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.timm.clone">
+            function <span class="apidocSignatureSpan">timm.</span>clone
+            <span class="apidocSignatureSpan">(obj)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.timm.getIn">
+            function <span class="apidocSignatureSpan">timm.</span>getIn
+            <span class="apidocSignatureSpan">(obj, path)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.timm.insert">
+            function <span class="apidocSignatureSpan">timm.</span>insert
+            <span class="apidocSignatureSpan">(array, idx, val)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.timm.merge">
+            function <span class="apidocSignatureSpan">timm.</span>merge
+            <span class="apidocSignatureSpan">(a, b, c, d, e, f)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.timm.mergeIn">
+            function <span class="apidocSignatureSpan">timm.</span>mergeIn
+            <span class="apidocSignatureSpan">(a, path, b, c, d, e, f)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.timm.omit">
+            function <span class="apidocSignatureSpan">timm.</span>omit
+            <span class="apidocSignatureSpan">(obj, attrs)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.timm.removeAt">
+            function <span class="apidocSignatureSpan">timm.</span>removeAt
+            <span class="apidocSignatureSpan">(array, idx)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.timm.removeFirst">
+            function <span class="apidocSignatureSpan">timm.</span>removeFirst
+            <span class="apidocSignatureSpan">(array)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.timm.removeLast">
+            function <span class="apidocSignatureSpan">timm.</span>removeLast
+            <span class="apidocSignatureSpan">(array)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.timm.replaceAt">
+            function <span class="apidocSignatureSpan">timm.</span>replaceAt
+            <span class="apidocSignatureSpan">(array, idx, newItem)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.timm.set">
+            function <span class="apidocSignatureSpan">timm.</span>set
+            <span class="apidocSignatureSpan">(obj, key, val)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.timm.setIn">
+            function <span class="apidocSignatureSpan">timm.</span>setIn
+            <span class="apidocSignatureSpan">(obj, path, val)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.timm.updateIn">
+            function <span class="apidocSignatureSpan">timm.</span>updateIn
+            <span class="apidocSignatureSpan">(obj, path, fnUpdate)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">timm.</span>default</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.timm.default">module timm.default</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.timm.default.addDefaults">
+            function <span class="apidocSignatureSpan">timm.default.</span>addDefaults
+            <span class="apidocSignatureSpan">(a, b, c, d, e, f)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.timm.default.addFirst">
+            function <span class="apidocSignatureSpan">timm.default.</span>addFirst
+            <span class="apidocSignatureSpan">(array, val)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.timm.default.addLast">
+            function <span class="apidocSignatureSpan">timm.default.</span>addLast
+            <span class="apidocSignatureSpan">(array, val)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.timm.default.clone">
+            function <span class="apidocSignatureSpan">timm.default.</span>clone
+            <span class="apidocSignatureSpan">(obj)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.timm.default.getIn">
+            function <span class="apidocSignatureSpan">timm.default.</span>getIn
+            <span class="apidocSignatureSpan">(obj, path)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.timm.default.insert">
+            function <span class="apidocSignatureSpan">timm.default.</span>insert
+            <span class="apidocSignatureSpan">(array, idx, val)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.timm.default.merge">
+            function <span class="apidocSignatureSpan">timm.default.</span>merge
+            <span class="apidocSignatureSpan">(a, b, c, d, e, f)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.timm.default.mergeIn">
+            function <span class="apidocSignatureSpan">timm.default.</span>mergeIn
+            <span class="apidocSignatureSpan">(a, path, b, c, d, e, f)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.timm.default.omit">
+            function <span class="apidocSignatureSpan">timm.default.</span>omit
+            <span class="apidocSignatureSpan">(obj, attrs)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.timm.default.removeAt">
+            function <span class="apidocSignatureSpan">timm.default.</span>removeAt
+            <span class="apidocSignatureSpan">(array, idx)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.timm.default.removeFirst">
+            function <span class="apidocSignatureSpan">timm.default.</span>removeFirst
+            <span class="apidocSignatureSpan">(array)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.timm.default.removeLast">
+            function <span class="apidocSignatureSpan">timm.default.</span>removeLast
+            <span class="apidocSignatureSpan">(array)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.timm.default.replaceAt">
+            function <span class="apidocSignatureSpan">timm.default.</span>replaceAt
+            <span class="apidocSignatureSpan">(array, idx, newItem)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.timm.default.set">
+            function <span class="apidocSignatureSpan">timm.default.</span>set
+            <span class="apidocSignatureSpan">(obj, key, val)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.timm.default.setIn">
+            function <span class="apidocSignatureSpan">timm.default.</span>setIn
+            <span class="apidocSignatureSpan">(obj, path, val)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.timm.default.updateIn">
+            function <span class="apidocSignatureSpan">timm.default.</span>updateIn
+            <span class="apidocSignatureSpan">(obj, path, fnUpdate)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.timm" id="apidoc.module.timm">module timm</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.timm.addDefaults" id="apidoc.element.timm.addDefaults">
+        function <span class="apidocSignatureSpan">timm.</span>addDefaults
+        <span class="apidocSignatureSpan">(a, b, c, d, e, f)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function addDefaults(a, b, c, d, e, f) {
+  for (var _len4 = arguments.length, rest = Array(_len4 &#x3e; 6 ? _len4 - 6 : 0), _key4 = 6; _key4 &#x3c; _len4; _key4++) {
+    rest[_key4 - 6] = arguments[_key4];
+  }
+
+  return rest.length ? doMerge.call.apply(doMerge, [null, true, a, b, c, d, e, f].concat(rest)) : doMerge(true, a, b, c, d, e, f
+);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.timm.addFirst" id="apidoc.element.timm.addFirst">
+        function <span class="apidocSignatureSpan">timm.</span>addFirst
+        <span class="apidocSignatureSpan">(array, val)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function addFirst(array, val) {
+  if (Array.isArray(val)) return val.concat(array);
+  return [val].concat(array);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.timm.addLast" id="apidoc.element.timm.addLast">
+        function <span class="apidocSignatureSpan">timm.</span>addLast
+        <span class="apidocSignatureSpan">(array, val)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function addLast(array, val) {
+  if (Array.isArray(val)) return array.concat(val);
+  return array.concat([val]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.timm.clone" id="apidoc.element.timm.clone">
+        function <span class="apidocSignatureSpan">timm.</span>clone
+        <span class="apidocSignatureSpan">(obj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function clone(obj) {
+  if (Array.isArray(obj)) return obj.slice();
+  var keys = Object.keys(obj);
+  var out = {};
+  for (var i = 0; i &#x3c; keys.length; i++) {
+    var key = keys[i];
+    out[key] = obj[key];
+  }
+  return out;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.timm.getIn" id="apidoc.element.timm.getIn">
+        function <span class="apidocSignatureSpan">timm.</span>getIn
+        <span class="apidocSignatureSpan">(obj, path)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getIn(obj, path) {
+  !Array.isArray(path) &#x26;&#x26; throwStr(process.env.NODE_ENV !== &#x27;production&#x27; ? &#x27;A path array should be provided when calling getIn()&#x27; :
+INVALID_ARGS);
+  if (obj == null) return undefined;
+  var ptr = obj;
+  for (var i = 0; i &#x3c; path.length; i++) {
+    var key = path[i];
+    ptr = ptr != null ? ptr[key] : undefined;
+    if (ptr === undefined) return ptr;
+  }
+  return ptr;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.timm.insert" id="apidoc.element.timm.insert">
+        function <span class="apidocSignatureSpan">timm.</span>insert
+        <span class="apidocSignatureSpan">(array, idx, val)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function insert(array, idx, val) {
+  return array.slice(0, idx).concat(Array.isArray(val) ? val : [val]).concat(array.slice(idx));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.timm.merge" id="apidoc.element.timm.merge">
+        function <span class="apidocSignatureSpan">timm.</span>merge
+        <span class="apidocSignatureSpan">(a, b, c, d, e, f)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function merge(a, b, c, d, e, f) {
+  for (var _len2 = arguments.length, rest = Array(_len2 &#x3e; 6 ? _len2 - 6 : 0), _key2 = 6; _key2 &#x3c; _len2; _key2++) {
+    rest[_key2 - 6] = arguments[_key2];
+  }
+
+  return rest.length ? doMerge.call.apply(doMerge, [null, false, a, b, c, d, e, f].concat(rest)) : doMerge(false, a, b, c, d, e,
+f);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+
+## Usage
+
+```js
+// Consume the CommonJS ES5 module (default)
+import { merge } from &#x27;timm&#x27;;
+const obj = timm.<span class="apidocCodeKeywordSpan">merge</span>({ a: 2 }, { b: 3 });
+
+// Consume the native ES6 module (requires bundling)
+import { merge } from &#x27;timm/lib/timm_es6&#x27;;
+const obj = merge({ a: 2 }, { b: 3 });
+```
+
+*Note: you can use the ES6 module version with Webpack 2 and its tree-shaking feature to get really small bundles, including just
+ the timm functions you use. Make sure you disable `babel-plugin-transform-es2015-modules-commonjs` in your `babel-loader` configuration
+. [More details here](http://www.2ality.com/2015/12/webpack-tree-shaking.html).*
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.timm.mergeIn" id="apidoc.element.timm.mergeIn">
+        function <span class="apidocSignatureSpan">timm.</span>mergeIn
+        <span class="apidocSignatureSpan">(a, path, b, c, d, e, f)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function mergeIn(a, path, b, c, d, e, f) {
+  var prevVal = getIn(a, path);
+  if (prevVal == null) prevVal = {};
+  var nextVal = void 0;
+
+  for (var _len3 = arguments.length, rest = Array(_len3 &#x3e; 7 ? _len3 - 7 : 0), _key3 = 7; _key3 &#x3c; _len3; _key3++) {
+    rest[_key3 - 7] = arguments[_key3];
+  }
+
+  if (rest.length) {
+    nextVal = doMerge.call.apply(doMerge, [null, false, prevVal, b, c, d, e, f].concat(rest));
+  } else {
+    nextVal = doMerge(false, prevVal, b, c, d, e, f);
+  }
+  return setIn(a, path, nextVal);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.timm.omit" id="apidoc.element.timm.omit">
+        function <span class="apidocSignatureSpan">timm.</span>omit
+        <span class="apidocSignatureSpan">(obj, attrs)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function omit(obj, attrs) {
+  var omitList = Array.isArray(attrs) ? attrs : [attrs];
+  var fDoSomething = false;
+  for (var i = 0; i &#x3c; omitList.length; i++) {
+    if (hasOwnProperty.call(obj, omitList[i])) {
+      fDoSomething = true;
+      break;
+    }
+  }
+  if (!fDoSomething) return obj;
+  var out = {};
+  var keys = Object.keys(obj);
+  for (var _i = 0; _i &#x3c; keys.length; _i++) {
+    var key = keys[_i];
+    if (omitList.indexOf(key) &#x3e;= 0) continue;
+    out[key] = obj[key];
+  }
+  return out;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.timm.removeAt" id="apidoc.element.timm.removeAt">
+        function <span class="apidocSignatureSpan">timm.</span>removeAt
+        <span class="apidocSignatureSpan">(array, idx)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function removeAt(array, idx) {
+  if (idx &#x3e;= array.length || idx &#x3c; 0) return array;
+  return array.slice(0, idx).concat(array.slice(idx + 1));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.timm.removeFirst" id="apidoc.element.timm.removeFirst">
+        function <span class="apidocSignatureSpan">timm.</span>removeFirst
+        <span class="apidocSignatureSpan">(array)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function removeFirst(array) {
+  if (!array.length) return array;
+  return array.slice(1);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.timm.removeLast" id="apidoc.element.timm.removeLast">
+        function <span class="apidocSignatureSpan">timm.</span>removeLast
+        <span class="apidocSignatureSpan">(array)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function removeLast(array) {
+  if (!array.length) return array;
+  return array.slice(0, array.length - 1);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.timm.replaceAt" id="apidoc.element.timm.replaceAt">
+        function <span class="apidocSignatureSpan">timm.</span>replaceAt
+        <span class="apidocSignatureSpan">(array, idx, newItem)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function replaceAt(array, idx, newItem) {
+  if (array[idx] === newItem) return array;
+
+  var len = array.length;
+  var result = Array(len);
+  for (var i = 0; i &#x3c; len; i++) {
+    result[i] = array[i];
+  }
+  result[idx] = newItem;
+  return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.timm.set" id="apidoc.element.timm.set">
+        function <span class="apidocSignatureSpan">timm.</span>set
+        <span class="apidocSignatureSpan">(obj, key, val)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function set(obj, key, val) {
+  var fallback = typeof key === &#x27;number&#x27; ? [] : {};
+  var finalObj = obj == null ? fallback : obj;
+  if (finalObj[key] === val) return finalObj;
+  var obj2 = clone(finalObj);
+  obj2[key] = val;
+  return obj2;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.timm.setIn" id="apidoc.element.timm.setIn">
+        function <span class="apidocSignatureSpan">timm.</span>setIn
+        <span class="apidocSignatureSpan">(obj, path, val)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function setIn(obj, path, val) {
+  if (!path.length) return val;
+  return doSetIn(obj, path, val, 0);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.timm.updateIn" id="apidoc.element.timm.updateIn">
+        function <span class="apidocSignatureSpan">timm.</span>updateIn
+        <span class="apidocSignatureSpan">(obj, path, fnUpdate)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function updateIn(obj, path, fnUpdate) {
+  var prevVal = getIn(obj, path);
+  var nextVal = fnUpdate(prevVal);
+  return setIn(obj, path, nextVal);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.timm.default" id="apidoc.module.timm.default">module timm.default</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.timm.default.addDefaults" id="apidoc.element.timm.default.addDefaults">
+        function <span class="apidocSignatureSpan">timm.default.</span>addDefaults
+        <span class="apidocSignatureSpan">(a, b, c, d, e, f)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function addDefaults(a, b, c, d, e, f) {
+  for (var _len4 = arguments.length, rest = Array(_len4 &#x3e; 6 ? _len4 - 6 : 0), _key4 = 6; _key4 &#x3c; _len4; _key4++) {
+    rest[_key4 - 6] = arguments[_key4];
+  }
+
+  return rest.length ? doMerge.call.apply(doMerge, [null, true, a, b, c, d, e, f].concat(rest)) : doMerge(true, a, b, c, d, e, f
+);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.timm.default.addFirst" id="apidoc.element.timm.default.addFirst">
+        function <span class="apidocSignatureSpan">timm.default.</span>addFirst
+        <span class="apidocSignatureSpan">(array, val)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function addFirst(array, val) {
+  if (Array.isArray(val)) return val.concat(array);
+  return [val].concat(array);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.timm.default.addLast" id="apidoc.element.timm.default.addLast">
+        function <span class="apidocSignatureSpan">timm.default.</span>addLast
+        <span class="apidocSignatureSpan">(array, val)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function addLast(array, val) {
+  if (Array.isArray(val)) return array.concat(val);
+  return array.concat([val]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.timm.default.clone" id="apidoc.element.timm.default.clone">
+        function <span class="apidocSignatureSpan">timm.default.</span>clone
+        <span class="apidocSignatureSpan">(obj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function clone(obj) {
+  if (Array.isArray(obj)) return obj.slice();
+  var keys = Object.keys(obj);
+  var out = {};
+  for (var i = 0; i &#x3c; keys.length; i++) {
+    var key = keys[i];
+    out[key] = obj[key];
+  }
+  return out;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.timm.default.getIn" id="apidoc.element.timm.default.getIn">
+        function <span class="apidocSignatureSpan">timm.default.</span>getIn
+        <span class="apidocSignatureSpan">(obj, path)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getIn(obj, path) {
+  !Array.isArray(path) &#x26;&#x26; throwStr(process.env.NODE_ENV !== &#x27;production&#x27; ? &#x27;A path array should be provided when calling getIn()&#x27; :
+INVALID_ARGS);
+  if (obj == null) return undefined;
+  var ptr = obj;
+  for (var i = 0; i &#x3c; path.length; i++) {
+    var key = path[i];
+    ptr = ptr != null ? ptr[key] : undefined;
+    if (ptr === undefined) return ptr;
+  }
+  return ptr;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.timm.default.insert" id="apidoc.element.timm.default.insert">
+        function <span class="apidocSignatureSpan">timm.default.</span>insert
+        <span class="apidocSignatureSpan">(array, idx, val)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function insert(array, idx, val) {
+  return array.slice(0, idx).concat(Array.isArray(val) ? val : [val]).concat(array.slice(idx));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.timm.default.merge" id="apidoc.element.timm.default.merge">
+        function <span class="apidocSignatureSpan">timm.default.</span>merge
+        <span class="apidocSignatureSpan">(a, b, c, d, e, f)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function merge(a, b, c, d, e, f) {
+  for (var _len2 = arguments.length, rest = Array(_len2 &#x3e; 6 ? _len2 - 6 : 0), _key2 = 6; _key2 &#x3c; _len2; _key2++) {
+    rest[_key2 - 6] = arguments[_key2];
+  }
+
+  return rest.length ? doMerge.call.apply(doMerge, [null, false, a, b, c, d, e, f].concat(rest)) : doMerge(false, a, b, c, d, e,
+f);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+
+## Usage
+
+```js
+// Consume the CommonJS ES5 module (default)
+import { merge } from &#x27;timm&#x27;;
+const obj = timm.<span class="apidocCodeKeywordSpan">merge</span>({ a: 2 }, { b: 3 });
+
+// Consume the native ES6 module (requires bundling)
+import { merge } from &#x27;timm/lib/timm_es6&#x27;;
+const obj = merge({ a: 2 }, { b: 3 });
+```
+
+*Note: you can use the ES6 module version with Webpack 2 and its tree-shaking feature to get really small bundles, including just
+ the timm functions you use. Make sure you disable `babel-plugin-transform-es2015-modules-commonjs` in your `babel-loader` configuration
+. [More details here](http://www.2ality.com/2015/12/webpack-tree-shaking.html).*
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.timm.default.mergeIn" id="apidoc.element.timm.default.mergeIn">
+        function <span class="apidocSignatureSpan">timm.default.</span>mergeIn
+        <span class="apidocSignatureSpan">(a, path, b, c, d, e, f)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function mergeIn(a, path, b, c, d, e, f) {
+  var prevVal = getIn(a, path);
+  if (prevVal == null) prevVal = {};
+  var nextVal = void 0;
+
+  for (var _len3 = arguments.length, rest = Array(_len3 &#x3e; 7 ? _len3 - 7 : 0), _key3 = 7; _key3 &#x3c; _len3; _key3++) {
+    rest[_key3 - 7] = arguments[_key3];
+  }
+
+  if (rest.length) {
+    nextVal = doMerge.call.apply(doMerge, [null, false, prevVal, b, c, d, e, f].concat(rest));
+  } else {
+    nextVal = doMerge(false, prevVal, b, c, d, e, f);
+  }
+  return setIn(a, path, nextVal);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.timm.default.omit" id="apidoc.element.timm.default.omit">
+        function <span class="apidocSignatureSpan">timm.default.</span>omit
+        <span class="apidocSignatureSpan">(obj, attrs)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function omit(obj, attrs) {
+  var omitList = Array.isArray(attrs) ? attrs : [attrs];
+  var fDoSomething = false;
+  for (var i = 0; i &#x3c; omitList.length; i++) {
+    if (hasOwnProperty.call(obj, omitList[i])) {
+      fDoSomething = true;
+      break;
+    }
+  }
+  if (!fDoSomething) return obj;
+  var out = {};
+  var keys = Object.keys(obj);
+  for (var _i = 0; _i &#x3c; keys.length; _i++) {
+    var key = keys[_i];
+    if (omitList.indexOf(key) &#x3e;= 0) continue;
+    out[key] = obj[key];
+  }
+  return out;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.timm.default.removeAt" id="apidoc.element.timm.default.removeAt">
+        function <span class="apidocSignatureSpan">timm.default.</span>removeAt
+        <span class="apidocSignatureSpan">(array, idx)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function removeAt(array, idx) {
+  if (idx &#x3e;= array.length || idx &#x3c; 0) return array;
+  return array.slice(0, idx).concat(array.slice(idx + 1));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.timm.default.removeFirst" id="apidoc.element.timm.default.removeFirst">
+        function <span class="apidocSignatureSpan">timm.default.</span>removeFirst
+        <span class="apidocSignatureSpan">(array)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function removeFirst(array) {
+  if (!array.length) return array;
+  return array.slice(1);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.timm.default.removeLast" id="apidoc.element.timm.default.removeLast">
+        function <span class="apidocSignatureSpan">timm.default.</span>removeLast
+        <span class="apidocSignatureSpan">(array)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function removeLast(array) {
+  if (!array.length) return array;
+  return array.slice(0, array.length - 1);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.timm.default.replaceAt" id="apidoc.element.timm.default.replaceAt">
+        function <span class="apidocSignatureSpan">timm.default.</span>replaceAt
+        <span class="apidocSignatureSpan">(array, idx, newItem)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function replaceAt(array, idx, newItem) {
+  if (array[idx] === newItem) return array;
+
+  var len = array.length;
+  var result = Array(len);
+  for (var i = 0; i &#x3c; len; i++) {
+    result[i] = array[i];
+  }
+  result[idx] = newItem;
+  return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.timm.default.set" id="apidoc.element.timm.default.set">
+        function <span class="apidocSignatureSpan">timm.default.</span>set
+        <span class="apidocSignatureSpan">(obj, key, val)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function set(obj, key, val) {
+  var fallback = typeof key === &#x27;number&#x27; ? [] : {};
+  var finalObj = obj == null ? fallback : obj;
+  if (finalObj[key] === val) return finalObj;
+  var obj2 = clone(finalObj);
+  obj2[key] = val;
+  return obj2;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.timm.default.setIn" id="apidoc.element.timm.default.setIn">
+        function <span class="apidocSignatureSpan">timm.default.</span>setIn
+        <span class="apidocSignatureSpan">(obj, path, val)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function setIn(obj, path, val) {
+  if (!path.length) return val;
+  return doSetIn(obj, path, val, 0);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.timm.default.updateIn" id="apidoc.element.timm.default.updateIn">
+        function <span class="apidocSignatureSpan">timm.default.</span>updateIn
+        <span class="apidocSignatureSpan">(obj, path, fnUpdate)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function updateIn(obj, path, fnUpdate) {
+  var prevVal = getIn(obj, path);
+  var nextVal = fnUpdate(prevVal);
+  return setIn(obj, path, nextVal);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
